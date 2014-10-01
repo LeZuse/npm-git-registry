@@ -70,7 +70,7 @@ describe('package retrieval', function () {
     https.setResponseInTest(info_url, {
       status: 200,
       body: JSON.stringify({
-        'name': 'abc'
+        'name': '@ripple/abc'
       })
     });
     https.setResponseInTest(tarball_url, {
@@ -85,7 +85,7 @@ describe('package retrieval', function () {
 
       var json = res.getBodyInTest();
       var info = JSON.parse(json);
-      expect(info['name']).to.be('abc');
+      expect(info['name']).to.be('@ripple/abc');
 
       callback();
     });

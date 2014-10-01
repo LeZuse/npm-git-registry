@@ -287,10 +287,11 @@ PackageInfoRequest.prototype.getInfoForSlug_ = function (slug, callback) {
     if (err) {
       return callback(err, null);
     }
-    if (info['name'] !== self.pkg_.root_relative_name) {
+    if (info['name'] !== self.pkg_.name) {
       return callback(null, null);
     }
 
+    info['name'] = self.pkg_.root_relative_name;
     self.normalizeInfo_(info, slug, callback);
   });
 };

@@ -11,6 +11,7 @@
     "blanket": "1.1.x",
     "expect.js": "~0.2.0",
     "mocha": "~1.16.2",
+    "mock-fs": "git+ssh://git@bitbucket.org/ripple-engine/mock-fs.git",
     "mock-http": "git+ssh://git@bitbucket.org/ripple-engine/mock-http.git"
   },
   "scripts": {

@@ -85,7 +85,7 @@ ApplicationFactory.prototype.createReceiver = function (router) {
 
 ApplicationFactory.prototype.getScopeMappings = function () {
   var filename = path.join(this.dirname_, 'config', 'scope-mappings.json');
-  var raw_mappings = JSON.parse(this.$fs.readFileSync(filename));
+  var raw_mappings = JSON.parse(this.$fs.readFileSync(filename, 'utf8'));
 
   var mappings = {};
   Object.keys(raw_mappings).forEach(function (scope) {
@@ -105,7 +105,7 @@ ApplicationFactory.prototype.getScopeMappings = function () {
 
 ApplicationFactory.prototype.getRoutes = function () {
   var filename = path.join(this.dirname_, 'config', 'routes.json');
-  var route_map = JSON.parse(this.$fs.readFileSync(filename));
+  var route_map = JSON.parse(this.$fs.readFileSync(filename, 'utf8'));
 
   var routes = Object.keys(route_map).map(function (key) {
     var parts = key.split(' ');

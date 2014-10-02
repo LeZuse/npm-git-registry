@@ -15,7 +15,6 @@ Bitbucket.prototype.head = function (url, auth, callback) {
   url.host = 'bitbucket.org';
   url.auth = auth;
 
-  console.log('HTTPS: HEAD ' + Url.format(url));
   this.$https.get(url, function (res) {
     if (res.statusCode >= 400) {
       return callback(new Error('Failed (' + res.statusCode + ')'));
@@ -30,7 +29,6 @@ Bitbucket.prototype.get = function (url, auth, callback) {
   url.host = 'bitbucket.org';
   url.auth = auth;
 
-  console.log('HTTPS: GET ' + Url.format(url));
   this.$https.get(url, function (res) {
     if (res.statusCode >= 400) {
       return callback(new Error('Failed (' + res.statusCode + ')'), null);

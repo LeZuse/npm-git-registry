@@ -346,7 +346,8 @@ PackageInfoRequest.prototype.normalizeInfo_ = function (
  */
 var RegistryError = function (code, message) {
   Error.call(this, message);
-  this.statusCode = 400;
+  this.statusCode = code;
+  this.message = message;
 };
 
 util.inherits(RegistryError, Error);

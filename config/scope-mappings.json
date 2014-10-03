@@ -1,19 +1,4 @@
 {
-  "@ripple": {
-    "account": "ripple-engine"
-  },
-  "@ripple-apps": {
-    "account": "ripple-engine",
-    "filter": "^ripple-"
-  },
-  "@ripple-clients": {
-    "account": "ripple-engine",
-    "filter": "^(.+)-client$"
-  },
-  "@ripple-drivers": {
-    "account": "ripple-engine",
-    "filter": "^ripple-(.+)-driver$"
-  },
   "@jankuca": {
     "account": "jankuca"
   }

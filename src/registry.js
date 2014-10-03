@@ -291,7 +291,6 @@ PackageInfoRequest.prototype.getInfoForSlug_ = function (slug, callback) {
       return callback(null, null);
     }
 
-    info['name'] = self.pkg_.root_relative_name;
     self.normalizeInfo_(info, slug, callback);
   });
 };

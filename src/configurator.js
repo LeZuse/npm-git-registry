@@ -31,7 +31,7 @@ Configurator.prototype.find = function (/* var_levels */) {
   var rel_filename = path.join.apply(path, arguments);
 
   var dirnames = this.dirnames_;
-  for (var i = dirnames.length - 1; i >= 0; --i) {
+  for (var i = 0, ii = dirnames.length; i < ii; ++i) {
     var filename = path.join(dirnames[i], rel_filename);
     if (this.$fs.existsSync(filename)) {
       return filename;

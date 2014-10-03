@@ -1,7 +1,7 @@
 
 var package = require('../');
 
-var MockHttp = require('mock-http');
+var MockHttp = require('@ripple/mock-http');
 
 
 describe('authentication', function () {

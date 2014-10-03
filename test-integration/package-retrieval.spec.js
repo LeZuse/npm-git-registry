@@ -3,8 +3,8 @@ var os = require('os');
 var path = require('path');
 var package = require('../');
 
-var MockFs = require('mock-fs');
-var MockHttp = require('mock-http');
+var MockFs = require('@ripple/mock-fs');
+var MockHttp = require('@ripple/mock-http');
 
 
 describe('package retrieval', function () {

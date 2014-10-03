@@ -10,16 +10,15 @@ var Router = require('node-simple-router');
 /**
  * @constructor
  */
-var ApplicationFactory = function (fs, http, https) {
+var ApplicationFactory = function (configurator, fs, http, https) {
+  this.$configurator = configurator;
   this.$fs = fs;
   this.$http = http;
   this.$https = https;
 };
 
 
-ApplicationFactory.prototype.createApplication = function (dirname) {
-  this.dirname_ = dirname;
-
+ApplicationFactory.prototype.createApplication = function (configurator) {
   var bitbucket = this.createBitbucketClient();
   var registry = this.createRegistry(bitbucket);
 
@@ -84,8 +83,8 @@ ApplicationFactory.prototype.createReceiver = function (router) {
 
 
 ApplicationFactory.prototype.getScopeMappings = function () {
-  var filename = path.join(this.dirname_, 'config', 'scope-mappings.json');
-  var raw_mappings = JSON.parse(this.$fs.readFileSync(filename, 'utf8'));
+  var json = this.$configurator.read('config', 'scope-mappings.json');
+  var raw_mappings = JSON.parse(json);
 
   var mappings = {};
   Object.keys(raw_mappings).forEach(function (scope) {
@@ -104,8 +103,8 @@ ApplicationFactory.prototype.getScopeMappings = function () {
 
 
 ApplicationFactory.prototype.getRoutes = function () {
-  var filename = path.join(this.dirname_, 'config', 'routes.json');
-  var route_map = JSON.parse(this.$fs.readFileSync(filename, 'utf8'));
+  var json = this.$configurator.read('config', 'routes.json');
+  var route_map = JSON.parse(json);
 
   var routes = Object.keys(route_map).map(function (key) {
     var parts = key.split(' ');

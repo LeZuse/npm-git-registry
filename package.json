@@ -2,6 +2,10 @@
   "name": "npm-git-registry",
   "version": "1.0.0a",
   "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git://bitbucket.org/ripple-engine/npm-git-registry.git"
+  },
   "dependencies": {
     "fuzzyset.js": "*",
     "node-simple-router": "0.9.2-8",

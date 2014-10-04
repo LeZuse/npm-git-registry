@@ -32,11 +32,23 @@ Application.prototype.run = function (callback) {
 };
 
 
-Application.prototype.handleRequest_ = function (target, req, res, d) {
+Application.prototype.handleRequest_ = function (target, req, res) {
   var controller = new Controller(this.$registry);
 
-  d.run(function () {
-    controller[target].call(controller, req, res, d);
+  controller[target].call(controller, req, res, function (err) {
+    if (!err) {
+      return res.end();
+    }
+
+    console.log('ERROR', err);
+    if (!err.statusCode) {
+      throw err;
+    }
+
+    res.writeHead(err.statusCode);
+    res.end(JSON.stringify({
+      'error': 'registry: ' + err.message
+    }));
   });
 };
 

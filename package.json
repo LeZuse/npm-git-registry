@@ -12,8 +12,8 @@
     "shasum": "1.0.x"
   },
   "devDependencies": {
-    "@ripple/mock-fs": "*",
-    "@ripple/mock-http": "*",
+    "mock-fs": "git+ssh://git@bitbucket.org/ripple-engine/mock-fs.git",
+    "mock-http": "git+ssh://git@bitbucket.org/ripple-engine/mock-http.git",
     "blanket": "1.1.x",
     "expect.js": "~0.2.0",
     "mocha": "~1.16.2"

@@ -94,16 +94,16 @@ Registry.prototype.getPackageTarballStream = function (
         return callback(err, null);
       }
 
-      var version_info = info['versions'][pkg.revision];
+      var version = info['dist-tags'][pkg.revision] || pkg.revision;
+      var version_info = info['versions'][version];
       if (!version_info) {
         return callback(null, null);
       }
 
-      var auth_base64 = headers['authorization'].split(' ')[1];
-      var auth = new Buffer(auth_base64, 'base64').toString('utf8');
       var url = version_info['dist']['tarball'];
-      return this.getStream_(url, auth, callback);
+      return callback(null, url);
     });
+    return;
   }
 
   var stream;

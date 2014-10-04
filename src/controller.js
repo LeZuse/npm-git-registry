@@ -72,6 +72,12 @@ Controller.prototype['tarball'] = function (req, res, callback) {
       err.statusCode = 404;
       return callback(err);
     }
+    if (typeof tar === 'string') {
+      res.writeHead(301, {
+        'location': tar
+      });
+      return res.end();
+    }
 
     res.writeHead(200);
     tar.pipe(res);

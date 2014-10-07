@@ -20,6 +20,7 @@
     "mocha": "~1.16.2"
   },
   "scripts": {
+    "start": "node main.js",
     "test-unit":
       "./node_modules/.bin/mocha test -R dot -r test/_globals --check-leaks --recursive --grep Mock --invert 2>&1 | grep -v 'ERR!'; npm run-script cov-unit &> /dev/null",
     "cov-unit":

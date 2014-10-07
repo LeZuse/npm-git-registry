@@ -6,14 +6,15 @@
     "type": "git",
     "url": "git://bitbucket.org/ripple-engine/npm-git-registry.git"
   },
+  "engines": {
+    "npm": ">=2.0.0"
+  },
   "dependencies": {
     "fuzzyset.js": "*",
     "node-simple-router": "0.9.2-8",
     "shasum": "1.0.x"
   },
   "devDependencies": {
-    "mock-fs": "git+ssh://git@bitbucket.org/ripple-engine/mock-fs.git",
-    "mock-http": "git+ssh://git@bitbucket.org/ripple-engine/mock-http.git",
     "blanket": "1.1.x",
     "expect.js": "~0.2.0",
     "mocha": "~1.16.2"

@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+var path = require('path');
+
+console.log('Running registry on at http://localhost:' + (process.env['PORT'] || 8080));
+require(path.join(__dirname, '..', 'main')).main(null, null, null);

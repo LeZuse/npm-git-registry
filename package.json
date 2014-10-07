@@ -19,6 +19,7 @@
     "expect.js": "~0.2.0",
     "mocha": "~1.16.2"
   },
+  "bin": "./bin/npm-git-registry",
   "scripts": {
     "start": "node main.js",
     "test-unit":
